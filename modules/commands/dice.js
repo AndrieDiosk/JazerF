@@ -32,7 +32,7 @@ module.exports.run = async ({ api, event, args }) => {
 
 	const userRoll = rollDie();
 	const botRoll = rollDie();
-	let resultMessage = `You got: ${numberToEmoji(userRoll)}\nYazkybot got: ${numberToEmoji(botRoll)}\n\n`;
+	let resultMessage = `You got: ${numberToEmoji(userRoll)}\nkazumaBot got: ${numberToEmoji(botRoll)}\n\n`;
 
 	if (userRoll > botRoll) {
 		resultMessage += `You won ₪${betAmount} with a result of ${userRoll}`;

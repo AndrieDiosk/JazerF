@@ -3,7 +3,7 @@
 	"PreKey": "",
 	"AutoUpdate": true,
 	"MainColor": "#00FFFF",
-	"MainName": "[ Dave/prince ]",
+	"MainName": "[ Jazer Dmetriov ]",
 	"Uptime": true,
 	"Login2Fa": false,
 	"AutoLogin": false,
@@ -14,7 +14,7 @@
 	"AutoRestartMinutes": 0,
 	"HTML": {
 		"HTML": false,
-		"UserName": "Dave",
+		"UserName": "Jazer",
 		"MusicLink": "https://drive.google.com/uc?id=1zlAALlxk1TnO7jXtEP_O6yvemtzA2ukA&export=download"
 	}
 }

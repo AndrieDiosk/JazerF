@@ -1,48 +1,52 @@
-const fs = require('fs-extra');
 const axios = require('axios');
+const fs = require('fs');
+const { promisify } = require('util');
+
+const unlinkAsync = promisify(fs.unlink);
 
 module.exports.config = {
-  name: "fbdl",
-  version: "1.0",
-  hasPermssion: 0,
-  credits: "shiki",
-  description: "Fb Vid Downloader",
-  commandCategory: "other",
-  usages: "[ fb video link ]",
-  cooldowns: 2,
+  name: 'fbdl',
+  version: '1.0.0',
+  hasPermission: 0,
+  credits: 'rickciel',
+  usePrefix: true,
+  description: 'Download and send a Facebook video',
+  commandCategory: 'Utility',
+  usages: 'fbdownload [video URL]',
+  cooldowns: 3,
 };
 
 module.exports.run = async function ({ api, event, args }) {
-  let link = args.join(" ");
-
-  if (!args[0]) {
-    api.sendMessage("please put a valid fb video link", event.threadID, event.messageID);
+  if (args.length === 0) {
+    await api.sendMessage('Please provide a valid Facebook video URL.', event.threadID);
     return;
   }
-// don't chnage credits or I'll of apis
-  api.sendMessage("downloading video, please wait...", event.threadID, event.messageID);
+
+  const videoURL = args[0];
 
   try {
-    let path = __dirname + `/cache/`;
+    const response = await axios.get(`https://kazumaoff-peachwings.replit.app/fetch?url=${encodeURIComponent(videoURL)}`);
+    const data = response.data;
 
+    if (data.success) {
+      await api.sendMessage('Facebook video is downloaded. Please wait while it\'s being sent...', event.threadID);
 
-    await fs.ensureDir(path);
+      const highQualityLink = data.links['Download High Quality'];
 
-    path += 'fbVID.mp4';
+      const videoBuffer = await axios.get(highQualityLink, { responseType: 'arraybuffer' });
+      const videoFileName = `${Date.now()}.mp4`;
 
-    const aa = await axios.get(`https://facebookdl.hayih59124.repl.co/facebook?url=${encodeURI(link)}`);
+      await fs.promises.writeFile(videoFileName, videoBuffer.data);
+      const videoStream = fs.createReadStream(videoFileName);
 
+      await api.sendMessage({ attachment: videoStream }, event.threadID);
+      await unlinkAsync(videoFileName); // Delete the temporary video file
 
-    const videoUrl = aa.data.result.sd_q; 
-
-    const vid = (await axios.get(videoUrl, { responseType: "arraybuffer", })).data;
-
-    fs.writeFileSync(path, Buffer.from(vid, 'utf-8'));
-
-    api.sendMessage({
-      attachment: fs.createReadStream(path) }, event.threadID, () => fs.unlinkSync(path), event.messageID);
-
-  } catch (e) {
-    api.sendMessage(`${e}`, event.threadID, event.messageID);
-  };
+    } else {
+      await api.sendMessage('Failed to retrieve the video.', event.threadID);
+    }
+  } catch (error) {
+    console.error(error);
+    await api.sendMessage('An error occurred while processing your request.', event.threadID);
+  }
 };

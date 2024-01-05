@@ -23,7 +23,7 @@ module.exports.run = async function({ api, event, args }) {
 	 }
 	 api.sendMessage("Downloading in progress. Please wait!", event.threadID, event.messageID);
 
-	 const response = await axios.get(`https://test.peachwings.repl.co/api/tiktok?url=${encodeURIComponent(link)}`);
+	 const response = await axios.get(`https://50871913-cf2f-4d74-a4ad-c8aee07be569-00-vs81rfjivzcc.riker.replit.dev/v2/tiktok?url=${encodeURIComponent(link)}`);
 
 	 const videoUrl = response.data.url;
 

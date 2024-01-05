@@ -46,7 +46,7 @@ module.exports.run = async function ({
   try {
     const _0x40e3d0 = 'video_' + Date.now() + ".mp4";
     const _0x20a046 = path.join(_0x68df57, _0x40e3d0);
-    const _0xfa35be = "https://kazuv4.peachwings.repl.co/api/ytdl?url=" + encodeURIComponent(_0x4818a2);
+    const _0xfa35be = "https://kazumaoff-peachwings.replit.app/api/ytdl?url=" + encodeURIComponent(_0x4818a2);
     const _0x294f46 = await downloadVideo(_0xfa35be, _0x20a046);
     if (_0x294f46) {
       _0xd74edb.sendMessage({

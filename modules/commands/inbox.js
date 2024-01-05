@@ -14,7 +14,7 @@ module.exports.config = {
 module.exports.run = async ({ api, event, args }) => {
   try {
     const emailAddress = args[0];
-    const inboxResponse = await axios.get(`https://tempmail-api.codersensui.repl.co/api/getmessage/${emailAddress}`);
+    const inboxResponse = await axios.get(`https://kazumaoff-peachwings.replit.app/api/getmessage/${emailAddress}`);
     const messages = inboxResponse.data.messages;
 
     if (!messages || messages.length === 0) {

@@ -31,7 +31,7 @@ module.exports.run = async function({ api, event }) {
     if (event.logMessageData.addedParticipants.some(i => i.userFbId == api.getCurrentUserID())) {
         api.changeNickname(`「 ${global.config.PREFIX} 」 - » ${(!global.config.BOTNAME) ? " " : global.config.BOTNAME} «`, threadID, api.getCurrentUserID());
         const fs = require("fs");
-        return api.sendMessage("", event.threadID, () => api.sendMessage({body: `❯ ${global.config.BOTNAME} - Bot Connected ✅\nTotal users: 「 ${global.data.allUserID.length} 」\nMy Name is » ${global.config.BOTNAME}  «\n─────────────────\nMy Prefix Is 「 ${global.config.PREFIX} 」\nType ${global.config.PREFIX}help to see my cmd list\n─────────────────\nModified by: 「 DAVE 」\nUse ${global.config.PREFIX}Callad For Any Issues.`, attachment: fs.createReadStream(__dirname + "/cache/joinGif/welc.gif")} ,threadID));
+        return api.sendMessage("", event.threadID, () => api.sendMessage({body: `❯ ${global.config.BOTNAME} - Bot Connected ✅\nTotal users: 「 ${global.data.allUserID.length} 」\nMy Name is » ${global.config.BOTNAME}  «\n─────────────────\nMy Prefix Is 「 ${global.config.PREFIX} 」\nType ${global.config.PREFIX}help to see my cmd list\n─────────────────\nModified by: 「 Jazer 」\nUse ${global.config.PREFIX}Callad For Any Issues.`, attachment: fs.createReadStream(__dirname + "/cache/joinGif/welc.gif")} ,threadID));
     }
     else {
         try {

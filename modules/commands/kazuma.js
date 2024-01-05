@@ -1,5 +1,5 @@
 const kazumaAI = require("axios");
-const q = 'kazumaoff.';
+const q = 'kazumaoff-peachwings.';
 var cred = "Jazer Dmetriov";
 
 module.exports.config = {
@@ -57,7 +57,7 @@ module.exports.run = async function ({ api, event, args }) {
     api.setMessageReaction("🚀", event.messageID, (err) => {}, true);
     api.sendMessage(`𝙆𝙖𝙯𝙪𝙢𝙖𝙎𝙚𝙖𝙧𝙘𝙝𝙞𝙣𝙜🔎: ${response}`, threadID, messageID);
 
-    const r = await kazumaAI.get(`https://${q}peachwings.repl.co/api/gpt?query=${response}`);
+    const r = await kazumaAI.get(`https://${q}replit.app/api/gpt?query=${response}`);
     const kazuma = r.data.result;
 
     const c = "credits: www.facebook.com/devs150";

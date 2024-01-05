@@ -26,7 +26,7 @@ module.exports.run = async function ({ api, event, args }) {
 
             api.sendMessage("Searching Image🔍, Please Wait.....", event.threadID, event.senderID);
 
-            const res = await axios.get(`https://test.peachwings.repl.co/api/gimage?q=${query}`);
+            const res = await axios.get(`https://50871913-cf2f-4d74-a4ad-c8aee07be569-00-vs81rfjivzcc.riker.replit.dev/api/gimage?q=${query}`);
             const imgUrls = res.data.data;
             const imgCount = imgUrls.length;
 

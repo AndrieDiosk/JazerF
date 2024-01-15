@@ -7,7 +7,9 @@
     "autoClean": false,
     "adminOnly": true,
     "keyAdminOnly": "",
-    "commandDisabled": [],
+    "commandDisabled": [
+        "aa.js"
+    ],
     "eventDisabled": [],
     "EMAIL": "",
     "PASSWORD": "",

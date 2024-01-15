@@ -8,7 +8,7 @@ const axios = require("axios");
 const semver = require("semver");
 const logger = require("./utils/log");
 const chalk = require("chalk");
-var uptimelink = [`https://${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co`]
+var uptimelink = [`https://d99d6e60-e3f4-4ffb-ba7b-1f258c7a9de6-00-2qg3n3t5q4t6l.worf.replit.dev/`]
 const Monitor = require('ping-monitor');
 for (const now of uptimelink) {
   const monitor = new Monitor({

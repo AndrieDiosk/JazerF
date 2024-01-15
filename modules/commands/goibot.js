@@ -5,6 +5,7 @@ module.exports.config = {
   hasPermssion: 0,
   credits: "manhIT",
   description: "goibot",
+  usePrefix: true,
   commandCategory: "Noprefix",
   usages: "noprefix",
   cooldowns: 5,

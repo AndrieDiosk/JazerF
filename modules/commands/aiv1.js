@@ -23,10 +23,11 @@ const handleEvent = async function ({ api, event, client, __GLOBAL }) {
     } else {
       try {
         api.sendMessage('Please wait while I think through your request...', event.threadID, event.messageID);
-        const ris = await axios.get(`https://kazuv4.peachwings.repl.co/api/ai?question=${message.slice(1).join(" ")}`);
-        const result = ris.data.answer;
+        const ris = await axios.get(`https://api.kenliejugarap.com/gptgo/?text=${message.slice(1).join(" ")}`);
+        const result = ris.data.response;
         const a = "credits: www.facebook.com/devs150";
-        const jazer = `𝗝𝗔𝗭𝗘𝗥 🤖:\n\n${result}${a}`;
+        const haha = `${result.replace("\n#GPTGO \n\nIs this answer helpful to you? Kindly click the link below\nhttps:\/\/click2donate.kenliejugarap.com\n(Clicking the link and clicking any ads or button and wait for 30 seconds (3 times) everyday is a big donation and help to us to maintain the servers, last longer, and upgrade servers in the future)", "")}`;
+        const jazer = `𝗝𝗔𝗭𝗘𝗥 🤖:\n\n${haha}\n\n${a}`;
         api.sendMessage(jazer, event.threadID, event.messageID);
       } catch (err) {
         console.error(err);

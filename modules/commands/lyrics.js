@@ -19,7 +19,7 @@ module.exports.run = async ({ api, event, args }) => {
   if (!song) {
     return api.sendMessage('Please enter a song.', event.threadID, event.messageID);
   } else {
-    axios.get(`https://api.heckerman06.repl.co/api/other/lyrics2?song=${encodeURIComponent(song)}`)
+    axios.get(`https://api.popcat.xyz/lyrics?song=${encodeURIComponent(song)}`)
       .then(res => {
         const { title, artist, lyrics, image } = res.data;
 

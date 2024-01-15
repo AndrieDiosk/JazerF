@@ -4,6 +4,7 @@ module.exports.config = {
 	hasPermssion: 0,
 	credits: "Hinata",
 	description: "Get User ID.",
+  usePrefix: false,
 	commandCategory: "other",
 	cooldowns: 5
 };

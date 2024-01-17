@@ -19,7 +19,7 @@ module.exports.run = async ({ api, event, args }) => {
   var james = event.messageReply.attachments[0].url || args.join(" ");
   
   try {
-    const response = await axios.get(`https://remeni.hayih59124.repl.co/remeni?url=${encodeURIComponent(james)}`);
+    const response = await axios.get(`https://code-merge-api-hazeyy01.replit.app/api/try/remini?url=${encodeURIComponent(james)}`);
     const processedImageURL = response.data.image_data;
     
     const img = (await axios.get(processedImageURL, { responseType: "arraybuffer"})).data;

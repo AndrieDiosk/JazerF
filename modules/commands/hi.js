@@ -4,6 +4,7 @@ module.exports.config = {
   hasPermssion: 0,
   credits: "Sam",
   description: "hi gửi sticker",
+  usePrefix: true,
   commandCategory: "QTV BOX",
   usages: "[text]",
   cooldowns: 5

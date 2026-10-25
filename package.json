@@ -47,7 +47,7 @@
 		"eval": "^0.1.8",
 		"express": "^4.18.2",
 		"extract-zip": "",
-		"ws3-fca": "^1.2.5",
+		"ws3-fca": "^3.5.2",
 		"figlet": "",
 		"fs-extra": "^10.1.0",
 		"idioms": "0.0.2",
